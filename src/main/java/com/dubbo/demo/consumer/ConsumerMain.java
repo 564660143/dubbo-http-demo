@@ -1,6 +1,7 @@
 package com.dubbo.demo.consumer;
 
 import com.alibaba.dubbo.rpc.RpcContext;
+import com.alibaba.dubbo.rpc.service.GenericService;
 import com.dubbo.demo.HelloService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,12 +15,12 @@ public class ConsumerMain {
         ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("application-context-consumer.xml");
         classPathXmlApplicationContext.start();
 
-        HelloService helloService = (HelloService) classPathXmlApplicationContext.getBean("helloService");
+        GenericService helloService = (GenericService) classPathXmlApplicationContext.getBean("helloService");
 
-        helloService.hello("World1");
+        helloService.$invoke("hello", new String[]{"java.lang.String"}, new Object[]{"World1"});
         Future<String> future1 = RpcContext.getContext().getFuture();
 
-        helloService.hello("World2");
+        helloService.$invoke("hello", new String[]{"java.lang.String"}, new Object[]{"World2"});
         Future<String> future2 = RpcContext.getContext().getFuture();
 
         System.out.println("=====================================");
