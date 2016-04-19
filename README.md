@@ -5,14 +5,20 @@ Run Provider
 ---------------------
 
 ```bash
-mvn exec:java -Dexec.mainClass=com.dubbo.demo.provider.ProviderMain
+mvn jetty:run
+```
+
+Or run by main using embedded jetty:
+
+```bash
+mvn -Pembedded-jetty package exec:java -Dexec.mainClass=com.dubbo.demo.provider.ProviderMain
 ```
 
 Run Consumer
 ----------------------
 
 ```bash
-mvn exec:java -Dexec.mainClass=com.dubbo.demo.consumer.ConsumerMain
+mvn package exec:java -Dexec.mainClass=com.dubbo.demo.consumer.ConsumerMain
 ```
 
 Related Documents

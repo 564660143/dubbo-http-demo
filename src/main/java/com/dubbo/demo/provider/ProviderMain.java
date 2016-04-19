@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class ProviderMain {
     public static void main(String[] args) throws Exception {
-        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("application-context-provider.xml");
+        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("application-context-provider-main.xml");
         classPathXmlApplicationContext.start();
 
         Thread.sleep(1000 * 1000);
